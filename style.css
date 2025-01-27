@@ -1,15 +1,104 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
+/* General Reset */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+body {
     font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--bg-color);
+    color: var(--text-color);
 }
-body{
-    background: #081b29;
-    color: #ededed;
+
+/* Color Variables */
+:root {
+    /* Light Mode */
+    --light-bg-color: #ffffff;
+    --light-text-color: #333333;
+    --light-header-bg: #f5f5f5;
+    --light-accent-color: #00d7a5;
+    --light-link-hover: #005a9e;
+
+    /* Dark Mode */
+    --dark-bg-color: #081b29;
+    --dark-text-color: #e5e5e5;
+    --dark-header-bg: #1e1e1e;
+    --dark-accent-color: #00abf0;
+    --dark-link-hover: #7b61ff;
 }
+
+/* Light Mode Variables */
+body.light-mode {
+    --bg-color: var(--light-bg-color);
+    --text-color: var(--light-text-color);
+    --header-bg: var(--light-header-bg);
+    --accent-color: var(--light-accent-color);
+    --link-hover: var(--light-link-hover);
+}
+
+/* Dark Mode Variables */
+body.dark-mode {
+    --bg-color: var(--dark-bg-color);
+    --text-color: var(--dark-text-color);
+    --header-bg: var(--dark-header-bg);
+    --accent-color: var(--dark-accent-color);
+    --link-hover: var(--dark-link-hover);
+}
+
+
+header .navbar a {
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 16px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+header .navbar a:hover {
+    color: var(--link-hover);
+}
+
+
+
+
+
+
+
+/* Theme Toggle Button */
+.toggle-theme {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    font-size: 28px;
+    cursor: pointer;
+    color: var(--link-hover);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.toggle-theme .bx {
+    display: none;
+}
+
+body.light-mode .bx-moon {
+    display: inline;
+}
+
+body.dark-mode .bx-sun {
+    display: inline;
+}
+.toggle-theme:hover {
+    transform: rotate(20deg);
+    color: var(--accent-color);
+}
+
+
 
 .header{
     position: fixed;
@@ -38,7 +127,7 @@ body{
     right: 0;
     width: 100%;
     height: 100%;
-    background: #081b29;
+    background: var(--bg-color);
     animation: showRight 1s ease forwards;
     animation-delay: .4s;
 }
@@ -69,6 +158,7 @@ body{
     max-width: 600px;
 }
 .home-content h1{
+    cursor: default;
     position: relative;
     font-size: 56px;
     font-weight: 700;
@@ -81,14 +171,15 @@ body{
     right: 0;
     width: 100%;
     height: 100%;
-    background: #081b29;
+    background:var(--bg-color);
     animation: showRight 1s ease forwards;
     animation-delay: 1s;
 }
 .home-content h3{
+    cursor: default;
     font-size: 32px;
     font-weight: 700;
-    color: #00abf0;
+    color: var(--accent-color);
 }
 .home-content h3::before{
     content: "";
@@ -97,11 +188,12 @@ body{
     right: 0;
     width: 100%;
     height: 100%;
-    background: #081b29;
+    background: var(--bg-color);
     animation: showRight 1s ease forwards;
     animation-delay: 1.3s;
 }
 .home-content p{
+    cursor: default;
     font-size: 16px;
     margin: 20px 0 40px;
 }
@@ -112,7 +204,7 @@ body{
     right: 0;
     width: 100%;
     height: 100%;
-    background: #081b29;
+    background: var(--bg-color);
     animation: showRight 1s ease forwards;
     animation-delay: 1.6s;
 }
@@ -130,7 +222,7 @@ body{
     right: 0;
     width: 100%;
     height: 100%;
-    background: #081b29;
+    background: var(--bg-color);
     animation: showRight 1s ease forwards;
     animation-delay: 1.9s;
     z-index: 2;
@@ -142,11 +234,11 @@ body{
     align-items: center;
     width: 150px;
     height: 100%;
-    background: #00abf0;
-    border: 2px solid #00abf0;
+    background: var(--accent-color);
+    border: 2px solid var(--accent-color);
     border-radius: 8px;
     font-size: 19px;
-    color: #081b29;
+    color: var(--link-hover);
     text-decoration: none;
     font-weight: 600;
     letter-spacing: 1px;
@@ -155,17 +247,17 @@ body{
     transition: .5s;
 }
 .btn-box a:hover{
-    color: #00abf0;
+    background-color: var(--link-hover);
 }
 .btn-box a:nth-child(2){
     background: transparent;
-    color: #00abf0;
+    color: var(--link-hover);
 }
 .btn-box a:nth-child(2):hover{
-    color: #081b29;
+    color: var(--link-hover);
 }
 .btn-box a:nth-child(2)::before {
-    background: #00abf0;
+    background: var(--accent-color);
 
 }
 
@@ -177,7 +269,7 @@ body{
     left: 0;
     width: 0;
     height: 100%;
-    background: #081b29;
+    background: var(--bg-color);
     z-index: -1;
     transition: .5s;
 }
@@ -199,7 +291,7 @@ body{
     right: 0;
     width: 100%;
     height: 100%;
-    background: #081b29;
+    background: var(--bg-color);
     animation: showRight 1s ease forwards;
     animation-delay: 2.5s;
     z-index: 2;
@@ -212,17 +304,17 @@ body{
     width: 40px;
     height: 40px;
     background: transparent;
-    border: 2px solid #00abf0;
+    border: 2px solid var(--accent-color);
     border-radius: 50%;
     font-size: 20px;
-    color: #00abf0;
+    color: var(--link-hover);
     text-decoration: none;
     z-index: 1;
     overflow: hidden;
-    transition: .5s;
+    transition: 1s;
 }
 .home-sci a:hover{
-    color: #081b29;
+    background-color: var(--accent-color);
 }
 
 .home-sci a::before{
@@ -232,14 +324,11 @@ body{
     left: 0;
     width: 0;
     height: 100%;
-    background: #00abf0;
+    background: var(--bg-color);
     z-index: -1;
     transition: .5s;
 }
 
-.home-sci a:hover::before {
-    width: 100%;
-}
 
 .home-imgHover{
     position: absolute;
@@ -254,7 +343,7 @@ body{
     pointer-events: none;
 }
 .home-imgHover:hover{
-    background: #081b29;
+    background: var(--bg-color);
     opacity: .8;
 }
 .home-imgHover::before{
@@ -264,7 +353,7 @@ body{
     right: 0;
     width: 125%;
     height: 100%;
-    background: #081b29;
+    background: var(--bg-color);
     animation: showRight 1s ease forwards;
     animation-delay: 3s;
     z-index: 100;
@@ -280,6 +369,36 @@ body{
         pointer-events: auto;
     }
 }
+
+.typing-effect {
+    display: inline-block;
+    border-right: 2px solid #00abf0; /* Cursor effect */
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing-remove 6s steps(30, end) infinite, blink 0.7s step-end infinite;
+}
+
+@keyframes typing-remove {
+    0% {
+        width: 0;
+    }
+    40% {
+        width: 100%; /* Full text is typed */
+    }
+    60% {
+        width: 100%; /* Pause before deleting */
+    }
+    100% {
+        width: 0; /* Text is fully removed */
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
 
 /* Mobile View */
 @media screen and (max-width: 768px) {
@@ -354,6 +473,9 @@ body{
         display: none;
     }
 }
+
+
+
 
 
 

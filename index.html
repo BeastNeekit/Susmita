@@ -5,28 +5,35 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Portfolio | Susmita</title>
+    <title>Susmita</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 
 <body>
+<div class="toggle-theme">
+    <i class="bx bx-sun"></i>
+    <i class="bx bx-moon"></i>
+</div>
+
 <!-- Header Section -->
 <header class="header">
     <a href="#" class="logo">SUSMITA</a>
     <nav class="navbar">
         <a href="#" class="active">Home</a>
         <a href="#about">About</a>
-        <a href="#services">Services</a>
         <a href="#portfolio">Portfolio</a>
         <a href="#contact">Contact</a>
+
     </nav>
 </header>
 
 <!-- Home Section -->
 <section class="home">
     <div class="home-content">
-        <h1>Hi, I'm Susmita Shrestha</h1>
+        <h1>
+            Hi, I'm <h1 class="typing-effect">Susmita Shrestha....</h1>
+        </h1>
         <h3>Frontend Developer</h3>
         <p>
             Passionate about building responsive and interactive websites. I specialize in crafting modern
@@ -46,6 +53,26 @@
     <!-- Decorative Hover Element -->
     <span class="home-imgHover"></span>
 </section>
-</body>
 
+<script>
+    // Toggle Theme
+    const toggleTheme = document.querySelector('.toggle-theme');
+    const body = document.body;
+
+    toggleTheme.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+        body.classList.toggle('light-mode');
+
+        // Save mode in local storage
+        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode');
+    });
+
+    // Load saved theme
+    window.addEventListener('load', () => {
+        const savedTheme = localStorage.getItem('theme') || 'light-mode';
+        body.classList.add(savedTheme);
+    });
+
+</script>
+</body>
 </html>
