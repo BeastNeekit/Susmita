@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Susmita</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./public/favicon-16x16.png">
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
 </head>
 
@@ -18,27 +20,26 @@
 
 <!-- Header Section -->
 <header class="header">
-    <a href="#" class="logo">SUSMITA</a>
+    <a href="#" class="logo">
+        <img src="./public/logo.png" alt="Logo" class="logo-img">
+        SUSMITA
+    </a>
     <nav class="navbar">
         <a href="#" class="active">Home</a>
         <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
+        <a href="#gallery">Gallery</a>
         <a href="#contact">Contact</a>
-
     </nav>
 </header>
 
 <!-- Home Section -->
-<section class="home">
+<section class="home" id="home">
     <div class="home-content">
-        <h1>
-            Hi, I'm <h1 class="typing-effect">Susmita Shrestha....</h1>
-        </h1>
+        <h1>Hi, I'm
+            <h2><span class="typing-effect">Susmita Shrestha....</span></h2></h1>
         <h3>Frontend Developer</h3>
-        <p>
-            Passionate about building responsive and interactive websites. I specialize in crafting modern
-            web solutions tailored to your needs. Let's bring your vision to life!
-        </p>
+        <p>Passionate about building responsive and interactive websites. I specialize in crafting modern web
+            solutions tailored to your needs. Let's bring your vision to life!</p>
         <div class="btn-box">
             <a href="#contact">Hire Me</a>
             <a href="#contact">Let's Talk</a>
@@ -46,33 +47,105 @@
     </div>
     <!-- Social Icons -->
     <div class="home-sci">
-        <a href="#" target="_blank"><i class="bx bxl-facebook"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100067927175840" target="_blank"><i
+                class="bx bxl-facebook"></i></a>
         <a href="#" target="_blank"><i class="bx bxl-twitter"></i></a>
-        <a href="#" target="_blank"><i class="bx bxl-linkedin"></i></a>
+        <a href="https://www.youtube.com/@NeekitShrestha" target="_blank"><i class="bx bxl-youtube"></i></a>
     </div>
     <!-- Decorative Hover Element -->
     <span class="home-imgHover"></span>
 </section>
 
-<script>
-    // Toggle Theme
-    const toggleTheme = document.querySelector('.toggle-theme');
-    const body = document.body;
+<!-- About Section -->
+<section class="about" id="about">
+    <h2>About Me</h2>
+    <p>I am a Frontend Developer with a passion for crafting modern, user-friendly websites. With a strong focus on
+        responsive design, I ensure that every website I build looks stunning on any device. I am proficient in
+        HTML, CSS, JavaScript, and modern libraries like React.js. Let's work together to create something
+        amazing!</p>
+    <section id="skills">
+        <h2>My Skills</h2>
+        <p>Here are some of the technologies and tools I work with:</p>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="bx bxl-html5"></i>
+                <h3>HTML5</h3>
+                <p>Semantic structure and modern HTML standards.</p>
+            </div>
+            <div class="skill-card">
+                <i class="bx bxl-css3"></i>
+                <h3>CSS3</h3>
+                <p>Responsive designs with animations and layouts.</p>
+            </div>
+            <div class="skill-card">
+                <i class="bx bxl-javascript"></i>
+                <h3>JavaScript</h3>
+                <p>Interactive functionality and dynamic web apps.</p>
+            </div>
+            <!-- Add more skills as needed -->
+        </div>
+    </section>
 
-    toggleTheme.addEventListener('click', () => {
-        body.classList.toggle('dark-mode');
-        body.classList.toggle('light-mode');
+</section>
 
-        // Save mode in local storage
-        localStorage.setItem('theme', body.classList.contains('dark-mode') ? 'dark-mode' : 'light-mode');
-    });
+<section id="gallery">
+    <h2>Gallery</h2>
+    <p>Explore some of my favorite moments and projects:</p>
+    <div class="gallery-grid">
+        <div class="gallery-item">
+            <img src="gallery/port1.jpg" alt="Image 1">
+            <div class="overlay">
+                <p>Image Caption 1</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="./gallery/port2.jpg" alt="Image 2">
+            <div class="overlay">
+                <p>Image Caption 2</p>
+            </div>
+        </div>
+        <div class="gallery-item">
+            <img src="./gallery/port3.jpg" alt="Image 3">
+            <div class="overlay">
+                <p>Image Caption 3</p>
+            </div>
+        </div>
+        <!-- Add more gallery items as needed -->
+    </div>
+</section>
 
-    // Load saved theme
-    window.addEventListener('load', () => {
-        const savedTheme = localStorage.getItem('theme') || 'light-mode';
-        body.classList.add(savedTheme);
-    });
+<section id="contact">
+    <h2>Contact Me</h2>
+    <p>If you have any questions or want to work together, feel free to reach out!</p>
 
-</script>
+    <div class="contact-container">
+        <div class="contact-box">
+            <i class="bx bx-phone"></i>
+            <h3>Phone</h3>
+            <p>+977-234 567 890</p>
+        </div>
+        <div class="contact-box">
+            <i class="bx bx-envelope"></i>
+            <h3>Email</h3>
+            <p>sus.nee.np@gmail.com</p>
+        </div>
+        <div class="contact-box">
+            <i class="bx bx-map"></i>
+            <h3>Location</h3>
+            <p>Sindhupalchok-Jugal, Nepal</p>
+        </div>
+    </div>
+
+    <form>
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</section>
+
+
+<script src="script.js"></script>
 </body>
+
 </html>
